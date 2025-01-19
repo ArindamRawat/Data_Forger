@@ -9,7 +9,7 @@ const Loader = () => {
       left: 0,
       right: 0,
       bottom: 0,
-      backgroundImage: 'linear-gradient( 85.2deg,  rgba(33,3,40,1) 7.5%, rgba(65,5,72,1) 88.7% )', // Semi-transparent black background
+      backgroundImage: 'linear-gradient(270deg, #1C2230, #151F2B, #0f1117);', // Semi-transparent black background
       zIndex: 9999, // Make sure loader is on top of other content
       display: 'flex', // Use flexbox for easy centering
       justifyContent: 'center', // Center horizontally

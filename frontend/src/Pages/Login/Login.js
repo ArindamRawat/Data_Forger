@@ -36,8 +36,8 @@ export default function Login(props) {
     return (
         <div className="bdy">
             {/* Background text */}
-            <div id="emailHelp-background">Data</div>
-            <div id="emailHelp-background2">Forge</div>
+            <div id="emailHelp-background">Data Forge</div>
+            <div id="emailHelp-background2">Data Forge</div>
 
             {/* Loader (visible when isLoading is true) */}
             {isLoading && <Loader />}

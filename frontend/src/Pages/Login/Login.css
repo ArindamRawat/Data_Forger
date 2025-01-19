@@ -102,7 +102,7 @@
     border-radius: 20px;
     box-shadow: 0 8px 35px rgba(0, 0, 0, 0.3);
     width: 100%;
-    max-width: 420px;
+    max-width: 520px;
     text-align: center;
     color: #fff;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -146,8 +146,8 @@
 /* Input field styles */
 .form-control {
     margin-top: 5px;
-    width: 100%;
-    padding: 1rem;
+    width: 500px;
+    padding: 1.5rem;
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1.2rem;
@@ -175,7 +175,7 @@
     font-size: 1.2rem;
     cursor: pointer;
     transition: background 0.3s, color 0.3s, box-shadow 0.3s;
-    width: 100%;
+    width: 500px;
     box-sizing: border-box;
 }
 
