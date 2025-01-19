@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFT Dataset Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+        input, select, button {
+            margin-top: 5px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>NFT Dataset Generator</h1>
+        <form action="/generate" method="POST">
+            <label for="num_data">Number of Data Points:</label>
+            <input type="number" id="num_data" name="num_data" min="1" max="1000" required>
+
+            <label for="category">Category:</label>
+            <select id="category" name="category" required>
+                <option value="Collection Analytics">Collection Analytics</option>
+                <option value="Collection Holders">Collection Holders</option>
+                <option value="Collection Scores">Collection Scores</option>
+                <option value="Collection Traders">Collection Traders</option>
+                <option value="Collection Washtrade">Collection Washtrade</option>
+                <option value="Collection Whales">Collection Whales</option>
+                <option value="Collection Profile">Collection Profile</option>
+                <!-- Add more categories dynamically here -->
+            </select>
+
+            <button type="submit">Generate Dataset</button>
+        </form>
+    </div>
+</body>
+</html>
