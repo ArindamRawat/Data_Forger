@@ -1,0 +1,205 @@
+/* Serene wavy animation for background color */
+@keyframes backgroundWaves {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.bdy {
+    font-family: 'Outfit', sans-serif;
+    background: linear-gradient(270deg, #1C2230, #151F2B, #0f1117);
+    background-size: 300% 300%;
+    animation: backgroundWaves 12s ease infinite;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    overflow: hidden;
+}
+
+/* Large background text for the DataForge logo */
+#emailHelp-background {
+    position: absolute;
+    z-index: 1;
+    font-size: 17rem;
+    color: rgba(255, 255, 255, 0.05);
+    font-weight: bold;
+    text-align: left; /* Align text to the left */
+    width: auto; /* Adjust width dynamically */
+    top: 5%; /* Position near the top */
+    left: 5%; /* Position near the left edge */
+    transform: translate(0, 0); /* Remove centering transform */
+    pointer-events: none;
+    white-space: nowrap;
+    /* Add animation */
+    animation: fadeInScale 4s ease-in-out infinite alternate;
+}
+
+/* Define the fadeInScale animation */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+}
+
+#emailHelp-background2 {
+    position: absolute;
+    z-index: 1;
+    font-size: 17rem;
+    color: rgba(255, 255, 255, 0.05);
+    font-weight: bold;
+    text-align: right; /* Align text to the right */
+    width: auto; /* Adjust width dynamically */
+    bottom: 5%; /* Position near the bottom */
+    right: 5%; /* Position near the right edge */
+    transform: translate(0, 0); /* Remove centering transform */
+    pointer-events: none;
+    white-space: nowrap;
+    /* Add animation */
+    animation: fadeInScale 4s ease-in-out infinite alternate;
+}
+
+/* Define the fadeInScale animation */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+}
+
+/* Smooth fade-in animation for text */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Login container with a hover effect */
+.login-container {
+    position: relative;
+    z-index: 10;
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.1);
+    padding: 3rem 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 8px 35px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-container:hover {
+    transform: scale(1.01);
+    box-shadow: 0 12px 45px rgba(0, 0, 0, 0.5);
+}
+
+/* Login form with fade-in animation */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    animation: fadeIn 1.5s ease;
+}
+
+/* Title with smooth fade-in effect */
+.login-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2.8rem;
+    margin-bottom: 1.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeIn 2s ease;
+}
+
+/* Form label styles */
+.form-label {
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #ccc;
+    align-self: flex-start;
+    margin-bottom: 0.5rem;
+}
+
+/* Input field styles */
+.form-control {
+    margin-top: 5px;
+    width: 100%;
+    padding: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-control:focus {
+    border: 1px solid #00b0fe;
+    outline: none;
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+/* Submit button styles */
+.btn-primary {
+    background: transparent;
+    color: #00b0fe;
+    border: 2px solid #00b0fe;
+    box-shadow: none;
+    padding: 1rem;
+    border-radius: 8px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background 0.3s, color 0.3s, box-shadow 0.3s;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.btn-primary:hover {
+    background: #00b0fe;
+    color: #1a1a1a;
+    box-shadow: 0 6px 15px rgba(0, 255, 255, 0.3);
+}
+
+/* Sign up text */
+.signup-text {
+    margin-top: 1.5rem;
+    font-size: 1.1rem;
+    color: #bbb;
+}
+
+.signup-text a {
+    color: #00b4d8;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.signup-text a:hover {
+    color: #007bff;
+    text-decoration: underline;
+}

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, Link } from 'react-router-dom';
-
-
+import { useNavigate, Link } from "react-router-dom";
+import './Main.css'
 const Main = () => {
   const [numData, setNumData] = useState(1);
   const [category, setCategory] = useState("Collection Analytics");
@@ -10,7 +9,6 @@ const Main = () => {
   const [userDetails, setUserDetails] = useState(null); // Tracks user details
 
   useEffect(() => {
-    // Fetch user details on component mount
     const fetchUserDetails = async () => {
       try {
         const response = await fetch("https://nft-nexus-backend.onrender.com/api/auth/getuser", {
@@ -79,112 +77,101 @@ const Main = () => {
     }
   };
 
-  
-
   return (
-    <div style={styles.container}>
-      <h1 style={styles.header}>NFT Dataset Generator</h1>
-      <div style={styles.userDetails}>
-        {userDetails ? (
-          <>
-            <h3>Welcome, {userDetails.name}!</h3>
-            <p>Email: {userDetails.email}</p>
-            <p>Wallet Address: {userDetails.walletAddress}</p>
-          </>
-        ) : (
-          <p>Loading user details...</p>
-        )}
+    <div className="main-container">
+      {/* Navbar */}
+      <div className="main-navbar">
+        <div className="main-navbar-left">
+          <h1 className="main-logo">DataForge</h1>
+        </div>
+        <div className="main-navbar-right">
+          {userDetails && (
+            <>
+              <div className="main-user-avatar">{userDetails.name.charAt(0).toUpperCase()}</div>
+              <h3 className="main-user-welcome">Welcome, {userDetails.name}!</h3>
+            </>
+          )}
+        </div>
       </div>
-      <div style={styles.form}>
-        <label style={styles.label}>Blockchain:</label>
-        <select disabled style={styles.input}>
-          <option value="ethereum">Ethereum</option>
-        </select>
 
-        <label style={styles.label}>Marketplace:</label>
-        <select disabled style={styles.input}>
-          <option value="opensea">OpenSea</option>
-        </select>
+      {/* Content */}
+      <div className="main-content">
+        {/* Header Section */}
+        <div className="main-header">
+          <h1>NFT Dataset Generator</h1>
+          <p>Generate customized datasets for your blockchain analytics needs.</p>
+        </div>
 
-        <label style={styles.label}>Number of Data Points:</label>
-        <input
-          type="number"
-          value={numData}
-          onChange={(e) => setNumData(e.target.value)}
-          min="1"
-          max="10000"
-          required
-          style={styles.input}
-        />
+        {/* User Details Section */}
+        <div className="main-user-details">
+          {userDetails ? (
+            <div className="main-user-card">
+              <h3>User Information</h3>
+              <p><b>Name:</b> {userDetails.name}</p>
+              <p><b>Email:</b> {userDetails.email}</p>
+              <p><b>Wallet Address:</b> {userDetails.walletAddress}</p>
+            </div>
+          ) : (
+            <p className="main-loading">Loading user details...</p>
+          )}
+        </div>
 
-        <label style={styles.label}>Category:</label>
-        <select
-          value={category}
-          onChange={(e) => setCategory(e.target.value)}
-          style={styles.input}
-        >
-          <option value="Collection Analytics">Collection Analytics</option>
-          <option value="Collection Holders">Collection Holders</option>
-          <option value="Collection Scores">Collection Scores</option>
-          <option value="Collection Traders">Collection Traders</option>
-          <option value="Collection Washtrade">Collection Washtrade</option>
-          <option value="Collection Whales">Collection Whales</option>
-          <option value="Collection Profile">Collection Profile</option>
-        </select>
+        {/* Form Section */}
+        <div className="main-form">
+          <label className="main-label">Blockchain:</label>
+          <select className="main-input" disabled>
+            <option value="ethereum">Ethereum</option>
+          </select>
 
-        <button
-          onClick={handleGenerate}
-          style={{
-            ...styles.button,
-            backgroundColor: !isLoading ? "#4caf50" : "#d3d3d3",
-            cursor: !isLoading ? "pointer" : "not-allowed",
-          }}
-          disabled={isLoading}
-        >
-          {isLoading ? "Generating..." : "Generate Dataset"}
-        </button>
+          <label className="main-label">Marketplace:</label>
+          <select className="main-input" disabled>
+            <option value="opensea">OpenSea</option>
+          </select>
+
+          <label className="main-label">Number of Data Points:</label>
+          <input
+            type="number"
+            className="main-input"
+            value={numData}
+            onChange={(e) => setNumData(e.target.value)}
+            min="1"
+            max="10000"
+            required
+          />
+
+          <label className="main-label">Category:</label>
+          <select
+            className="main-input"
+            value={category}
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            <option value="Collection Analytics">Collection Analytics</option>
+            <option value="Collection Holders">Collection Holders</option>
+            <option value="Collection Scores">Collection Scores</option>
+            <option value="Collection Traders">Collection Traders</option>
+            <option value="Collection Washtrade">Collection Washtrade</option>
+            <option value="Collection Whales">Collection Whales</option>
+            <option value="Collection Profile">Collection Profile</option>
+          </select>
+
+          <button
+            className={`main-button ${isLoading ? "main-button-disabled" : ""}`}
+            onClick={handleGenerate}
+            disabled={isLoading}
+          >
+            {isLoading ? "Generating..." : "Generate Dataset"}
+          </button>
+        </div>
+
+        {/* Footer Section */}
+        <div className="main-footer">
+          <Link to="/files" className="main-footer-link">
+            <button className="main-footer-button">Show Datasets</button>
+          </Link>
+        </div>
       </div>
-      <Link to="/files"><button>Show Datasets</button></Link>
     </div>
   );
-};
-
-const styles = {
-  container: {
-    padding: "20px",
-    fontFamily: "Arial, sans-serif",
-  },
-  header: {
-    textAlign: "center",
-  },
-  userDetails: {
-    textAlign: "center",
-    marginBottom: "20px",
-  },
-  form: {
-    maxWidth: "500px",
-    margin: "0 auto",
-  },
-  label: {
-    display: "block",
-    marginTop: "10px",
-    fontWeight: "bold",
-  },
-  input: {
-    width: "100%",
-    padding: "10px",
-    marginTop: "5px",
-    marginBottom: "15px",
-    borderRadius: "5px",
-    border: "1px solid #ddd",
-  },
-  button: {
-    padding: "10px 15px",
-    borderRadius: "5px",
-    border: "none",
-    color: "#fff",
-    fontSize: "16px",
-  },
 };
 
 export default Main;
