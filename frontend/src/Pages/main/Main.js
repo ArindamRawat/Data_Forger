@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import WalletConnect from "../../components/WalletConnect";
+import Navbar from "../../components/Navbar";
 
+import './Main.css'
 const Main = () => {
   const [numData, setNumData] = useState(1);
   const [category, setCategory] = useState("Collection Analytics");
@@ -91,46 +93,85 @@ const Main = () => {
 
   // Block rendering until user details are loaded
   if (isUserDetailsLoading) {
-    return <p>Loading user details...</p>;
+    return <p className="mainpage-loading-text">Loading user details...</p>;
   }
 
   // Determine if the button should be enabled
   const isButtonEnabled = numData <= 1000 || isPaid;
 
   return (
-    <div style={styles.container}>
-      <h1 style={styles.header}>NFT Dataset Generator</h1>
-      <div style={styles.userDetails}>
-        <h3>Welcome, {userDetails?.name || "User"}!</h3>
-        <p>Connected Wallet: {userDetails?.walletAddress || "Not Connected"}</p>
-      </div>
-      <div style={styles.form}>
-        <label style={styles.label}>Blockchain:</label>
-        <select disabled style={styles.input}>
+    <div className="mainpage-container">
+    
+    <Navbar userDetails={userDetails} />
+
+          {/* Header Section */}
+          <div className="main-header">
+  <h1>NFT Dataset Generator</h1>
+  <p>Generate customized datasets for your blockchain analytics needs.</p>
+
+  {/* Feature Details Section */}
+  <div className="main-feature-cards">
+    <div className="feature-card">
+      <h3>Collection Analytics</h3>
+      <p>Analyze overall performance metrics such as volume, sales, and market trends of NFT collections.</p>
+    </div>
+    <div className="feature-card">
+      <h3>Collection Holders</h3>
+      <p>Obtain insights about the distribution of NFT ownership and the activity levels of holders.</p>
+    </div>
+    <div className="feature-card">
+      <h3>Collection Scores</h3>
+      <p>Evaluate collections based on calculated scores like rarity, popularity, and trading activity.</p>
+    </div>
+    <div className="feature-card">
+      <h3>Collection Traders</h3>
+      <p>Explore the behavior and patterns of traders interacting with NFT collections.</p>
+    </div>
+    <div className="feature-card">
+      <h3>Collection Washtrade</h3>
+      <p>Detect and analyze suspicious trading patterns and wash trading activities in NFT collections.</p>
+    </div>
+    <div className="feature-card">
+      <h3>Collection Whales</h3>
+      <p>Identify and track influential large-scale holders or traders within a collection.</p>
+    </div>
+    <div className="feature-card last-card">
+      <h3>Collection Profile</h3>
+      <p>Access a comprehensive profile of the collection, including its creation details, creators, and associated assets.</p>
+    </div>
+  </div>
+</div>
+
+      
+      <div className="mainpage-form-container">
+        <label htmlFor="mainpage-blockchain-select" className="mainpage-label">Blockchain:</label>
+        <select id="mainpage-blockchain-select" disabled className="mainpage-select">
           <option value="ethereum">Ethereum</option>
         </select>
 
-        <label style={styles.label}>Marketplace:</label>
-        <select disabled style={styles.input}>
+        <label htmlFor="mainpage-marketplace-select" className="mainpage-label">Marketplace:</label>
+        <select id="mainpage-marketplace-select" disabled className="mainpage-select">
           <option value="opensea">OpenSea</option>
         </select>
 
-        <label style={styles.label}>Number of Data Points:</label>
+        <label htmlFor="mainpage-num-data" className="mainpage-label">Number of Data Points:</label>
         <input
           type="number"
+          id="mainpage-num-data"
+          className="mainpage-input"
           value={numData}
           onChange={(e) => setNumData(e.target.value)}
           min="1"
           max="10000"
           required
-          style={styles.input}
         />
 
-        <label style={styles.label}>Category:</label>
+        <label htmlFor="mainpage-category-select" className="mainpage-label">Category:</label>
         <select
+          id="mainpage-category-select"
+          className="mainpage-select"
           value={category}
           onChange={(e) => setCategory(e.target.value)}
-          style={styles.input}
         >
           <option value="Collection Analytics">Collection Analytics</option>
           <option value="Collection Holders">Collection Holders</option>
@@ -150,17 +191,15 @@ const Main = () => {
 
         <button
           onClick={handleGenerate}
-          style={{
-            ...styles.button,
-            backgroundColor: isButtonEnabled ? "#4caf50" : "#d3d3d3", // Green if enabled, grey if disabled
-            cursor: isButtonEnabled ? "pointer" : "not-allowed", // Pointer if enabled, not-allowed if disabled
-          }}
           disabled={!isButtonEnabled || isLoading} // Disabled if not enabled or loading
+          className="mainpage-generate-button"
         >
           {isLoading ? "Generating..." : "Generate Dataset"}
         </button>
       </div>
-      <Link to="/files"><button>Show datasets</button></Link>
+      <Link to="/files">
+        <button className="mainpage-show-datasets-button">Show datasets</button>
+      </Link>
     </div>
   );
 };
