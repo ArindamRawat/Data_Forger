@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from "react";
+import Navbar from "../../components/Navbar";
+import './Files.css'
 
 const Files = () => {
   const [datasets, setDatasets] = useState([]); // To store the list of user datasets
@@ -81,70 +83,54 @@ const Files = () => {
   };
 
   if (isLoading) {
-    return <p>Loading datasets...</p>;
+    return <p id="filespage-loading-text">Loading datasets...</p>;
   }
 
   if (error) {
-    return <p style={{ color: "red" }}>{error}</p>;
+    return <p id="filespage-error-message" style={{ color: "red" }}>{error}</p>;
   }
 
-  return (
-    <div style={styles.container}>
-      <h1 style={styles.header}>Your Generated Datasets</h1>
-      {datasets.length > 0 ? (
-        datasets.map((dataset) => (
-          <div key={dataset.fileId} style={styles.datasetItem}>
-            <p>
-              <strong>Type:</strong> {dataset.datasetType}
-            </p>
-            <p>
-              <strong>Generated On:</strong>{" "}
-              {new Date(dataset.timestamp).toLocaleString()}
-            </p>
-            <p>
-              <strong>Number of Entries:</strong> {dataset.numEntries}
-            </p>
-            <button
-              onClick={() => downloadFile(dataset.fileId, `dataset_${dataset.datasetType}.xlsx`)}
-              style={styles.button}
-            >
-              Download
-            </button>
-          </div>
-        ))
-      ) : (
-        <p>No datasets available.</p>
-      )}
-    </div>
-  );
-};
+  return (<>
 
-// Inline styles
-const styles = {
-  container: {
-    padding: "20px",
-    fontFamily: "Arial, sans-serif",
-  },
-  header: {
-    textAlign: "center",
-    marginBottom: "20px",
-  },
-  datasetItem: {
-    padding: "15px",
-    marginBottom: "10px",
-    border: "1px solid #ddd",
-    borderRadius: "5px",
-    backgroundColor: "#f9f9f9",
-  },
-  button: {
-    padding: "10px 15px",
-    fontSize: "14px",
-    color: "#fff",
-    backgroundColor: "#007BFF",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-  },
+    <Navbar />
+    <div id="filespage-container">
+  <h1 id="filespage-header">Your Generated Datasets</h1>
+  {datasets.length > 0 ? (
+    <div className="filespage-dataset-container">
+      {datasets.map((dataset) => (
+        <div key={dataset.fileId} className="filespage-dataset-item">
+          <p>
+            <strong>Type:</strong> {dataset.datasetType}
+          </p>
+          <p>
+            <strong>Generated On:</strong>{" "}
+            {new Date(dataset.timestamp).toLocaleString()}
+          </p>
+          <p>
+            <strong>Number of Entries:</strong> {dataset.numEntries}
+          </p>
+          <button
+            onClick={() =>
+              downloadFile(dataset.fileId, `dataset_${dataset.datasetType}.xlsx`)
+            }
+            className="filespage-button"
+          >
+            Download
+          </button>
+        </div>
+      ))}
+      {/* Add "+" container */}
+      <div className="filespage-add-container">
+        <a href="/Main">+</a>
+      </div>
+    </div>
+  ) : (
+    <p id="filespage-no-datasets">No datasets available.</p>
+  )}
+</div>
+
+    </>
+  );
 };
 
 export default Files;

@@ -76,8 +76,8 @@ export default function SignUp(props) {
   return (
     <div className="signuppage-body">
       {loading && <Loader />} {/* Display loader when loading */}
-      <div id="signuppage-background-text">Data</div>
-      <div id="signuppage-background-text2">Forge</div>
+      <div id="signuppage-background-text">Data Forge</div>
+      <div id="signuppage-background-text2">Data Forge</div>
 
       <div className="signuppage-container">
         <form onSubmit={handleSubmit} className="signuppage-form">

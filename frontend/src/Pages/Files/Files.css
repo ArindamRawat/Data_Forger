@@ -1,0 +1,108 @@
+/* General Layout */
+#filespage-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  #filespage-header {
+    text-align: center;
+    font-size: 2rem;
+    color: #58A6FF;
+    margin-bottom: 30px;
+  }
+  
+  /* Grid Container for Dataset Cards */
+  .filespage-dataset-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  
+  .filespage-dataset-item {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+  }
+  
+  .filespage-dataset-item:hover {
+    transform: translateY(-10px);
+  }
+  
+  .filespage-dataset-item p {
+    margin: 10px 0;
+    font-size: 1rem;
+  }
+  
+  .filespage-dataset-item strong {
+    color: #58A6FF;
+  }
+  
+  /* Button Style */
+  .filespage-button {
+    background: #58A6FF;
+    color: #151F2B;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .filespage-button:hover {
+    background: #0077b6;
+  }
+  
+  /* No Datasets Message */
+  #filespage-no-datasets {
+    text-align: center;
+    font-size: 1.2rem;
+    color: #a9b2c3;
+  }
+  
+  /* + Button (Redirect to Main Page) */
+  .filespage-add-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    padding: 20px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .filespage-add-container a {
+    text-decoration: none;
+    color: #58A6FF;
+    font-size: 2rem;
+  }
+  
+  .filespage-add-container:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Responsive Styles */
+  @media (max-width: 768px) {
+    .filespage-dataset-container {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .filespage-dataset-container {
+      grid-template-columns: 1fr;
+    }
+  
+    .filespage-dataset-item p {
+      font-size: 0.9rem;
+    }
+  }
+  

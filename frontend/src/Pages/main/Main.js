@@ -99,11 +99,8 @@ const Main = () => {
   // Determine if the button should be enabled
   const isButtonEnabled = numData <= 1000 || isPaid;
 
-  return (
+  return (<> <Navbar />
     <div className="mainpage-container">
-    
-    <Navbar userDetails={userDetails} />
-
           {/* Header Section */}
           <div className="main-header">
   <h1>NFT Dataset Generator</h1>
@@ -201,6 +198,7 @@ const Main = () => {
         <button className="mainpage-show-datasets-button">Show datasets</button>
       </Link>
     </div>
+    </>
   );
 };
 

@@ -74,6 +74,13 @@
     to { opacity: 1; }
 }
 
+/* Serene wavy animation for background color */
+@keyframes backgroundWaves {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
 /* SignUp container with a hover effect */
 .signuppage-container {
     position: relative;
@@ -88,6 +95,7 @@
     text-align: center;
     color: #fff;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 80%;
 }
 
 .signuppage-container:hover {
@@ -100,15 +108,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
+    gap: 1.1rem;
     animation: fadeIn 1.5s ease;
 }
 
 /* Title with smooth fade-in effect */
 .signuppage-title {
     font-family: 'Outfit', sans-serif;
-    font-size: 2.8rem;
-    margin-bottom: 1.8rem;
+    font-size: 1.4rem;
+    margin-bottom: .2rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -118,7 +126,7 @@
 /* Form label styles */
 .signuppage-form-label {
     font-family: 'Outfit', sans-serif;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: #ccc;
     align-self: flex-start;
@@ -127,9 +135,8 @@
 
 /* Input field styles */
 .signuppage-form-control {
-    margin-top: 5px;
     width: 100%;
-    padding: 1rem;
+    padding: .5rem;
     border: 1px solid #ccc;
     border-radius: 8px;
     font-size: 1.2rem;
@@ -138,7 +145,9 @@
     transition: background 0.3s ease, border 0.3s ease, box-shadow 0.3s ease;
     box-sizing: border-box;
 }
-
+.signuppage-mb-3{
+    width: 100%;
+}
 .signuppage-form-control:focus {
     border: 1px solid #00b0fe;
     outline: none;
@@ -150,11 +159,11 @@
 .signuppage-btn-primary {
     background: transparent;
     color: #00b0fe;
-    border: 2px solid #00b0fe;
+    border: 1px solid #00b0fe;
     box-shadow: none;
-    padding: 1rem;
+    padding: .5rem;
     border-radius: 8px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     cursor: pointer;
     transition: background 0.3s, color 0.3s, box-shadow 0.3s;
     width: 100%;
@@ -170,11 +179,11 @@
 .signuppage-btn-secondary {
     background: transparent;
     color: #00b0fe;
-    border: 2px solid #00b0fe;
+    border: 1px solid #00b0fe;
     box-shadow: none;
-    padding: 1rem;
+    padding: .5rem;
     border-radius: 8px;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     cursor: pointer;
     transition: background 0.3s, color 0.3s, box-shadow 0.3s;
     width: 100%;
